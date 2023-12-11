@@ -30,14 +30,14 @@ To run the Bank Management System, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your_username/bank-management-system.git
-   cd bank-management-system
+   git clone https://github.com/your_username/bank-management.git
+   cd bank-management
    ```
 
 2. **Compile and Run:**
    ```bash
-   g++ main.cpp -o bank_management_system
-   ./bank_management_system
+   g++ main.cpp -o bank_management
+   ./bank_management
    ```
 
 ## Usage
