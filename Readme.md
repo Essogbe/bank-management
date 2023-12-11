@@ -30,7 +30,7 @@ To run the Bank Management System, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your_username/bank-management.git
+   git clone https://github.com/Essogbe/bank-management.git
    cd bank-management
    ```
 
