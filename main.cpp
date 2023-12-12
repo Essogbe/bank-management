@@ -22,11 +22,12 @@ private:
     vector <string> transactions ;
 public:
     // Constructor
-    BankAccount(string n,int ac, double  bal){
-        name = n;
-        accountNum = ac;
-        balance = bal;
-    }
+    BankAccount(string n,int ac, double  bal): name(n), accountNum(ac), balance(bal)
+    //{
+        //name = n;
+        //accountNum = ac;
+        //balance = bal;
+    //}
     // Setter
     void setName(string n) {
         name = n;
@@ -46,6 +47,8 @@ public:
     double getBalance(){
         return balance ;
     }
+
+    // Tu dois ajouter un destructor, très important parce-que si après l'utilisation de tes objets tu ne les détruis as, ils continuent de prendre de l'espace en mémoire
 
     //Other Methods
     void savetransaction(string transactiontype,const double money){
@@ -104,7 +107,7 @@ public:
 
 
     void depositMoney(double money){
-        balance +=money;
+        balance += money;
 
         cout << "Successful Deposit Operation  . New Balance: "<<balance<<endl;
         this->savetransaction("DEPOSIT",money);
@@ -168,7 +171,7 @@ public:
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    BankManagement bank;
+    BankManagement bank; // Tu fais une déclaration sans affectattion alors que tu n'as pas de constructeurs par défaut.
     int choice;
     char option;
     do{
