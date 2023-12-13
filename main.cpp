@@ -48,12 +48,16 @@ public:
 
     //Other Methods
     void savetransaction(string transactiontype,const double money){
-        time_t now;
-        time(&now);
-        ostringstream oss;
-        oss << "Time: " << now << " | " <<"Transaction Type : " <<transactiontype << " | "<< "Money : "  << money<< " | " <<" Bal. : "<< balance ;
+        time_t now; // variable for store datetime format
 
-        string transaction = oss.str();
+        time(&now); // get current time
+
+        ostringstream oss;// For concatening many variables,expressions into string
+
+        oss << "Time: " << ctime(&now) << " | " <<"Transaction Type : " <<transactiontype << " | "<< "Money : "  << money<< " | " <<" Bal. : "<< balance ;
+
+        //ctime(&now) ==> convert time into String
+        string transaction = oss.str(); // Convert stream into String
 
         //save
         transactions.push_back(transaction);
