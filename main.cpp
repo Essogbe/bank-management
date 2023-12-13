@@ -2,8 +2,7 @@
 #include <vector>
 #include <sstream>
 #include <ctime>
-#include <chrono>
-#include <iomanip>
+
 
 #ifdef _WIN32
 #define CLEAR_SCREEN "cls"
@@ -49,33 +48,10 @@ public:
 
     //Other Methods
     void savetransaction(string transactiontype,const double money){
-        ostringstream time_format;
+        time_t now;
+        time(&now);
         ostringstream oss;
-
-       //Get actual time
-
-         //High time precision (only for C++ 17 or more)
-        auto currentTime = chrono::system_clock::now();
-        auto timePoint = chrono::system_clock::to_time_t(currentTime);
-        auto fractions = currentTime.time_since_epoch() % std::chrono::seconds(1);
-
-        tm* now = gmtime(&timePoint);
-
-
-        time_format << put_time(now,"%Y-%m-%d %H:%M:%S") <<'.'<<setw(3)<<setfill('O')<<fractions.count();
-
-
-
-        /*
-        time_t t=time(0);
-        tm* now= gmtime(&t);
-
-        time_format << put_time(now,"%Y-%m-%d %H:%M:%S");
-         */
-        string time = time_format.str();
-
-
-        oss << "Time: " << time << " | " <<"Transaction Type : " <<transactiontype << " | "<< "Money : "  << money<< " | " <<" Bal. : "<< balance ;
+        oss << "Time: " << now << " | " <<"Transaction Type : " <<transactiontype << " | "<< "Money : "  << money<< " | " <<" Bal. : "<< balance ;
 
         string transaction = oss.str();
 
